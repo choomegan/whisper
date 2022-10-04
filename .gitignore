@@ -13,3 +13,6 @@ thumbs.db
 *.txt
 *.vtt
 *.pt
+
+*.json
+whisper-large-model/*
