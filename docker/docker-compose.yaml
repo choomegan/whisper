@@ -1,19 +1,25 @@
-version: '3.9'
+version: '3.4'
 
 services:
 
-  whisper:
+  # whisper:
+  local:
+    build: ./
     stdin_open: true
     tty: true
-    image: dleongsh/whisper:1.10.0-cuda11.3-v2
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
+    # image: dleongsh/whisper:1.10.0-cuda11.3-v2
+    image: whisper:1.10.0-cuda11.3-v2
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: [gpu]
     volumes:
-      - /mnt/c/projects/whisper:/whisper
-      - /mnt/c/projects/whisper_models:/root/.cache/whisper
+      # - /mnt/c/projects/whisper:/whisper
+      # - /mnt/c/projects/whisper_models:/root/.cache/whisper
+      - /mnt/d/code/whisper/:/whisper
+      - /mnt/d/datasets/:/whisper/datasets
+      - /mnt/d/models/:/whisper/models
     ulimits:
       memlock: -1
       stack: 67108864

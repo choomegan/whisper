@@ -8,15 +8,15 @@ from typing import Any, List, Dict
 def detect_language_from_path(path: str, model: Any) -> str:
 
     # load audio and pad/trim it to fit 30 seconds
-    print(f'dl1: {path} -- type: {type(path)}')
+    #print(f'dl1: {path} -- type: {type(path)}')
     audio = whisper.load_audio(path)
-    print(f'dl2: {audio} -- type: {type(audio)}')
+    #print(f'dl2: {audio} -- type: {type(audio)}')
     audio = whisper.pad_or_trim(audio)
-    print(f'dl3: {audio} -- type: {type(audio)}')
+    #print(f'dl3: {audio} -- type: {type(audio)}')
 
     # make log-Mel spectrogram and move to the same device as the model
     mel = whisper.log_mel_spectrogram(audio).to(model.device)
-    print(f'dl4: {mel} -- type: {type(mel)} -- size: {mel.size()}')
+    #print(f'dl4: {mel} -- type: {type(mel)} -- size: {mel.size()}')
 
     # detect the spoken language
     _, probs = model.detect_language(mel)
@@ -53,6 +53,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # python3 lid_inference.py --model /whisper/whisper-large-model/large.pt --manifest /whisper/datasets/mms/data_to_i2r/mms_set_1/manifest.json
+    # python3 lid_inference.py --model /whisper/whisper-large-model/large.pt --manifest /whisper/datasets/jtubespeech/ms_1/annotated_data/manifest.json
 
     model = whisper.load_model(args.model, download_root='/whisper/whisper-large-model')
 
