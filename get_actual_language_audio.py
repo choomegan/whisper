@@ -7,8 +7,6 @@ import json
 from tqdm import tqdm
 from typing import Dict, List
 
-
-
 class GetActualLanguageAudio:
     '''
         loads the manifest, checks for the predicted language key, if it matches the target, retain. Else delete the audio, updates the manifest
@@ -54,7 +52,8 @@ class GetActualLanguageAudio:
         return self.delete_unwanted_audio()
 
 if __name__ == '__main__':
-    d = GetActualLanguageAudio(root_dir='/whisper/datasets/jtubespeech/ms_1/annotated_data_whisper_ms/', 
-                               input_manifest_dir='/whisper/datasets/jtubespeech/ms_1/annotated_data_whisper_ms/pred_manifest.json', 
-                               output_manifest_dir='/whisper/datasets/jtubespeech/ms_1/annotated_data_whisper_ms/pred_manifest_updated.json', 
-                               target_language_list=['ms', 'id']) 
+    d = GetActualLanguageAudio(root_dir='/whisper/datasets/jtubespeech/ms_2/annotated_data_whisper_ms/', 
+                               input_manifest_dir='/whisper/datasets/jtubespeech/ms_2/annotated_data_whisper_ms/pred_manifest.json', 
+                               output_manifest_dir='/whisper/datasets/jtubespeech/ms_2/annotated_data_whisper_ms/pred_manifest_updated.json', 
+                               target_language_list=['ms', 'id'])
+    d()
