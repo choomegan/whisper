@@ -23,5 +23,5 @@ for audio in tqdm(os.listdir(os.path.join(ROOT_FOLDER, LANGUAGE))):
 # export to a text file
 print('Writing to text file now')
 with open(os.path.join(ROOT_FOLDER, LANGUAGE, PRED_FILENAME), 'w+') as f:
-    for line in tqdm(pred_list):
-        f.write(f'{line}\n')
+    for idx, line in tqdm(enumerate(pred_list)):
+        f.write(f'{line}\n') if idx%2==0 else f.write(f'{line}\n\n')
