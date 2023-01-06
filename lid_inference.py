@@ -53,7 +53,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # python3 lid_inference.py --model /whisper/whisper-large-model/large.pt --manifest /whisper/datasets/mms/data_to_i2r/mms_set_1/manifest.json
-    # python3 lid_inference.py --model /whisper/whisper-large-model/large.pt --manifest /whisper/datasets/jtubespeech/ms_2/annotated_data/manifest_4.json
+    # python3 lid_inference.py --model /whisper/whisper-large-model/large.pt --manifest /whisper/datasets/jtubespeech/ms_3/annotated_data_whisper_ms/manifest_4.json
 
     model = whisper.load_model(args.model, download_root='/whisper/whisper-large-model')
 
@@ -61,4 +61,4 @@ if __name__ == '__main__':
     # print(f'model state dict - {model.state_dict}')
 
     pred_items = detect_language_from_manifest(args.manifest, model)
-    save_manifest(pred_items, '/whisper/datasets/jtubespeech/ms_2/annotated_data/pred_manifest_4.json')
+    save_manifest(pred_items, '/whisper/datasets/jtubespeech/ms_3/annotated_data_whisper_ms/pred_manifest.json')
