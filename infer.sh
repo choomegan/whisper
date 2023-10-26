@@ -1,4 +1,4 @@
-BATCH=20
+BATCH=22
 
 python3 lid_inference.py \
     --model /models/small.pt \
