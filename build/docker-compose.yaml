@@ -14,9 +14,6 @@ services:
           devices:
             - capabilities: [gpu]
     volumes:
-      # - /home/nicholas/code/whisper/:/whisper
-      # - /home/nicholas/datasets/:/datasets
-      # - /home/nicholas/models/:/models
       - /mnt/d/code/whisper/:/whisper
       - /mnt/d/datasets/:/datasets
       - /mnt/d/models/:/models
